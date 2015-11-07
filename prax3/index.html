@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"
+            type="text/javascript"></script>
+   <script src="assets/js/main.js" type="text/javascript"></script>
+  <!--  <script src="assets/js/blah.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div id="js-grid-selection" class="choose-grid">
+
+
+    <div class="flexbox">
+
+            <div class="form-group flexbox player-name">
+                <div>
+                   <label for="player">Enter your player name</label>
+                   <input name="name" type="text" class="form-control" id="player" placeholder="player name" onkeyup="formChanged()" onchange="formChanged()">
+                </div>
+                <button id="save-name" class="btn btn-default disabled"> Ok </button>
+            </div>
+
+        <div class="elements-left text-center">
+            <span>Choose a size for the grid</span>
+            <select id="js-grid-btn" class=" form-control">
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+                <option value="6">6x6</option>
+                <option value="7">7x7</option>
+                <option value="8">8x8</option>
+                <option value="9">9x9</option>
+                <option value="10">10x10</option>
+            </select>
+        </div>
+
+        <div class="elements-righttext-center">
+            <span>how many ships to play with?</span>
+            <select id="js-ships-list" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+
+        <div class="elements-center text-center">
+            <button id="js-start-game" class="btn btn-custom"> Play!</button>
+        </div>
+
+    </div>
+    <div class="curr-game">
+    </div>
+    <div class="flexbox">
+        <table class="stats-table hidden">
+            <thead>
+            <th>grid size</th>
+            <th>ships</th>
+            <th>player moves</th>
+            <th>opponents moves</th>
+            <th>time</th>
+            </thead>
+            <tbody id="player-stats">
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>
+<button id="js-expand-menu" class="btn-dropdown btn-custom"></button>
+<div class="flip hidden-sm hidden-lg hidden-md">
+
+    <div class="text-center timer">
+        00:00
+    </div>
+
+</div>
+<div class="board-wrap">
+    <div class="table-cell text-center">
+        <h1 class="transparent">your navy (<span id="players-navy"></span>)</h1>
+        <table id="board-left" class="board-left">
+
+        </table>
+    </div>
+    <div class="flip hidden-xs">
+        <div class="card">
+            <div class="face front">
+               <i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="face back">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+        </div>
+
+<div id="timer" class="text-center timer">
+00:00
+</div>
+
+    </div>
+    <div class="table-cell text-center">
+        <h1 class="transparent">opponents (<span id="opponents-navy"></span>)</h1>
+        <table id="board-right" class="board-right">
+
+        </table>
+    </div>
+</div>
+<form id="form" action="" method="post">
+
+    Name:<input type="text" id="player1_name" name="player1_name" class="hidden">
+    <br/>
+    Player1 results: <input type="number" id="player1_score" name="player1_points" class="hidden">
+    <br/>
+    Player2 (PC) results: <input type="number" id="player2_score" name="player2_points" class="hidden">
+    <br/>
+    Game start datetime<input type="number" id="start_time" name="start_time" class="hidden">
+    <br/>
+    Game time<input type="number" id="game_time" name="game_time" class="hidden">
+    <br/>
+    <input type="hidden" name="op" value="storetofile">
+    <br><br>
+    <input type="submit" id="submit-data">
+
+</form>
+
+
+<script>
+    function formChanged() {
+        var value=$.trim($("#player").val());
+
+        if(value.length>0)
+        {
+            $('#save-name').removeClass('disabled');
+        }
+        else {
+            $('#save-name').addClass('disabled');
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head><title>Results</title></head>
+<body>
+<table>
+    <tr>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="start_time"></form>
+        </td>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="player1_name"></form>
+        </td>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="player2_name"></form>
+        </td>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="player1_points"></form>
+        </td>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="player2_points"></form>
+        </td>
+        <td>
+            <form action="results.py" method="get">
+                <input type="hidden" name="reverse" value="$reverse">
+                <input type="submit" name="sort_by" value="game_time"></form>
+        </td>
+        $results
+    </tr>
+</table>
+</body>

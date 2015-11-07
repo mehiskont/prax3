@@ -1,0 +1,429 @@
+.choose-grid {
+    width: 650px;
+    max-height: 500px;
+    background-color: #ccc;
+    border-radius: 2px;
+    margin: auto;
+    padding: 0;
+    transition: all 0.15s;
+overflow: hidden;
+    position: relative;
+z-index:2;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.3);
+}
+.choose-grid .flexbox:nth-child(2) {
+    margin-top: 16px;
+}
+.choose-grid .flexbox {
+    position: relative;
+}
+.choose-grid .flexbox .player-name {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 10px;
+    background-color: #ccc;
+    padding: 0 24px;
+    margin-bottom: 0;
+    transition: all 4.15s;
+}
+.player-name.pull-up {
+    transform: translate3d(0, -2000px, 0);
+}
+.table {
+    display: table;
+}
+h1 {
+    display: inline-block;
+    font-size: 15px;
+    transition: all 0.9s;
+    margin-bottom: 24px !important;
+}
+.transparent {
+    opacity: 0 !important;
+}
+
+.player-stats {
+    background-color: #ccc;
+    border: 1px solid #eee;
+    height: 250px;
+    width: 70px;
+    position: fixed;
+    left: -70px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 2px;
+    transition: all 0.15s;
+}
+
+.opponents-stats {
+    background-color: #ccc;
+    border: 1px solid #eee;
+    height: 250px;
+    width: 70px;
+    position: fixed;
+    right: -70px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 2px;
+    transition: all 0.15s;
+}
+
+
+.board-wrap {
+    display: table;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.board-wrap .transparent {
+    opacity: 0 !important;
+}
+
+table#board-left td,table#board-right td {
+    width: 30px ;
+    height: 30px ;
+    border: 1px solid #ccc ;
+}
+
+.choose-grid span {
+    padding: 8px 6px 6px 6px;
+    display: block;
+    text-align: center;
+    margin: 4px;
+}
+
+
+.choose-grid .elements-right li {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+.choose-grid .elements-right li.active {
+    pointer-events: initial;
+    opacity: 1;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.board-wrap .table-cell {
+    width: 50%;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.btn-custom {
+    width: 100% !important;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 7px 4px;
+    border-radius: 2px;
+
+}
+.btn-custom:hover {
+    background-color: #ccc;
+    box-shadow: inset 0 0 0 1px #eee;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.2 !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.lift-up {
+    max-height: 0;
+}
+
+table td {
+    background-color: #fff;
+}
+.ship-opponent {
+  background-color: #b94a48 !important;
+    background: url('../img/ship.svg');
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: fading;
+    animation-duration: 3s;
+    animation-name: fading;
+}
+.ship-player {
+    background-color: #b94a48 !important;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: fading;
+    animation-duration: 3s;
+    animation-name: fading;
+}
+.ship-after {
+    background-color: #b94a48 !important;
+}
+.red {
+    background-color: #b94a48 !important;
+    color: #fff;
+}
+
+
+.canvas-wrap {
+    text-align: center;
+    margin-top: 60px;
+}
+.canvas-wrap canvas {
+    margin: 0 4px;
+}
+#js-start-game {
+    background-color: #6cc644;
+    color: #fff !important;
+    margin-top: 42px;
+    margin-left: 4px;
+}
+.btn-dropdown {
+    opacity: 0;
+    width: 40px !important;
+    border: 1px solid #EEE;
+    background-color: #ffc40d;
+    background-image: url('../img/Down.svg');
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    height: 34px;
+    position: relative;
+    z-index: 99;
+    display: block;
+    background-position: center center;
+    margin: auto;
+}
+
+.board-left {
+   margin:auto;
+    box-shadow: 0 0 34px 0 #ccc;
+    cursor: pointer;
+    transition: all 0.9s;
+}
+.board-left .ship {
+    background: url('../img/ship.svg');
+    background-color: #ffc40d;
+    background-size: 29px;
+    background-repeat: no-repeat;
+}
+
+.board-right {
+margin: auto;
+    box-shadow: 0 0 34px 0 #ccc;
+    cursor: pointer;
+    transition: all 0.9s;
+}
+
+
+
+.flip {
+    -webkit-perspective: 800;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.flip .card.flipped {
+    -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+}
+.flip .card .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden ;
+    z-index: 2;
+    font-size: 3em;
+    text-align: center;
+    line-height: 200px;
+}
+.flip .card .front {
+    position: absolute;
+    z-index: 1;
+    color: #000;
+
+}
+.flip .card .back {
+    -webkit-transform: rotatey(-180deg);
+    color: #000;
+
+}
+
+td:hover {
+    background-color: #eee;
+}
+.opp-missed {
+    background-color: #ccc;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: fading;
+    animation-duration: 3s;
+    animation-name: fading;
+}
+.opp-missed:hover {
+    background-color: #ccc;
+}
+.player-missed {
+    background-color: #ccc;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-name: fading;
+    animation-duration: 3s;
+    animation-name: fading;
+}
+.player-missed:hover {
+    background-color: #ccc;
+}
+.shipamount {
+    overflow-y: scroll;
+    height: 124px;
+}
+.flexbox {
+    display: flex;
+    justify-content: center;
+}
+.timer {
+    text-align: center;
+    margin-top: 28px;
+}
+.game-stats {
+    width: 292px;
+    box-shadow: 1px 0 10px 0 rgba(0, 0, 0, 0.63);
+    height: 400px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    top: 0;
+    background-color: #eee;
+    border-radius: 2px;
+    transform: translate3d(-292px, 0, 0);
+    transition: all 0.15s;
+}
+.pull-stats {
+    transform: translate3d(0, 0, 0) !important;
+}
+.game-stats .btn-stats {
+    border: 1px solid #EEE;
+    background-color: #ffc40d;
+    background-image: url('../img/Down.svg');
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    margin-right: -34px;
+    height: 34px;
+    width: 34px;
+    background-position: center center;
+    margin-bottom: 0px;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.table {
+    width: 100%;
+}
+.stats-table {
+    width: 100%;
+}
+@media only screen and (max-width: 700px) {
+   .table-cell {
+   //    display: block;
+   }
+    .choose-grid {
+        width: 100%;
+    }
+    .choose-grid .table-cell {
+        display: block;
+    }
+  
+    .elements-center {
+        vertical-align: bottom;
+        padding-bottom: 30px;
+    }
+    .board-wrap .table-cell {
+        display: block;
+        margin: auto;
+        width: 100%;
+    }
+    .board-wrap {
+        height: initial;
+        top: 86px;
+        padding-bottom: 30px;
+    }
+    .flip {
+       bottom: initial;
+        z-index: 1;
+        height: 20px;
+        top: 42px;
+    }
+.timer {
+    margin-top: 0;
+}
+    #js-start-game {
+        width: 55px !important;
+    }
+    .js-ships-count {
+        width: 80px !important;
+    }
+    .js-grid-btn {
+        width: 80px !important;
+    }
+    .game-stats {
+bottom: initial;
+        width: 245px;
+        transform: translate3d(-245px, 0, 0);
+    }
+
+}
+
+
+
+
+
+
+th {
+    text-align: left;
+    width: 70px;
+    padding: 4px !important;
+    background-color: #666;
+    color: #fff;
+    border: 1px solid #ccc;
+
+}
+
+#player-stats td
+{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 4px;
+}
+
+
+.curr-game {
+    padding: 4px;
+    text-align: center;
+}
+
+
+
+
+
+
