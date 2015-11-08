@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
 
-
     var grid = '#js-grid-selection',
         numberOfShips = 1,
         sizeOfGrid = 3,
@@ -10,6 +9,8 @@ $(document).ready(function () {
 
 
     var points;
+
+    var current_date;
 
     var numberOfShipsStart;
 
@@ -23,6 +24,7 @@ $(document).ready(function () {
     var xFirst = [];
     var yFirst = [];
 
+    var game_time_sec = [];
 
     var xOpp = [];
     var yOpp = [];
@@ -59,7 +61,7 @@ $(document).ready(function () {
     $("#save-name").click(function () {
         player_name = document.getElementsByName("name")[0].value;
         $('.player-name').addClass('pull-up');
-        alert(player_name)
+
     });
 
 
@@ -114,10 +116,14 @@ $(document).ready(function () {
 
     function initial_setup() {
 
+        current_date = Math.floor(Date.now() / 1000);
+
+        game_time_sec = [];
+
 
         $("#js-grid-btn").change(function () {
 
-          //  $('#js-start-game').addClass('disabled');
+            //  $('#js-start-game').addClass('disabled');
             //   $("#js-ships-count").html('');
 
             var matrixSize = $(this).val(),
@@ -125,7 +131,7 @@ $(document).ready(function () {
                 gridX = parseInt(matrixSize),
                 MaxOfShips = gridX;
 
-            console.log(matrixSize);
+            //  console.log(matrixSize);
 
             //     $("#js-box-size").html(MaxOfShips + "x" + MaxOfShips); //display grid size
 
@@ -144,11 +150,11 @@ $(document).ready(function () {
         $("#js-ships-list").change(function () {
 
             var shipsInt = $(this).val();
-                console.log(shipsInt)
+            //      console.log(shipsInt)
 
             numberOfShips = shipsInt;
 
-            console.log('numberOfShips' + numberOfShips)
+            //      console.log('numberOfShips' + numberOfShips)
             $('#js-start-game').removeClass('disabled');
         });
 //restart game
@@ -191,9 +197,7 @@ $(document).ready(function () {
             ships_size_stats.push(numberOfShipsStart);
 
 
-
-
-         //   $('.lift-up').css('transform','translate3d(0, -'+ menu_height +', 0)');
+            //   $('.lift-up').css('transform','translate3d(0, -'+ menu_height +', 0)');
 
             $("h1 span").html(numberOfShipsStart);
 
@@ -214,7 +218,7 @@ $(document).ready(function () {
             a = shuffle(a);
 
             opponents_random_moves = a;
-            console.log('opponents_random_moves :' + opponents_random_moves);
+            //    console.log('opponents_random_moves :' + opponents_random_moves);
 
             $('#js-grid-selection').addClass('lift-up');
 
@@ -298,8 +302,8 @@ $(document).ready(function () {
                             y.push([row]);
                             x.push([col]);
 
-                            console.log('---');
-                            console.log(countBoat + ' YX: ' + row + col);
+                            //       console.log('---');
+                            //      console.log(countBoat + ' YX: ' + row + col);
 
 
                         }
@@ -315,7 +319,7 @@ $(document).ready(function () {
                             x.push([col]);
 
 
-                            console.log(countBoat + ' YXesimene: ' + row + col);
+                            //     console.log(countBoat + ' YXesimene: ' + row + col);
 
 
                         }
@@ -324,7 +328,7 @@ $(document).ready(function () {
                 }
 
                 sisend.forEach(function (rows) {
-                    console.log(rows);
+                    //     console.log(rows);
                 });
 
 
@@ -362,8 +366,8 @@ $(document).ready(function () {
                             yOpp.push([row]);
                             xOpp.push([col]);
 
-                            console.log('---');
-                            console.log(countBoatOpp + ' YX: ' + row + col);
+                            //         console.log('---');
+                            //         console.log(countBoatOpp + ' YX: ' + row + col);
 
 
                         }
@@ -379,7 +383,7 @@ $(document).ready(function () {
                             xOpp.push([col]);
 
 
-                            console.log(countBoatOpp + ' YXesimene: ' + row + col);
+                            //        console.log(countBoatOpp + ' YXesimene: ' + row + col);
 
 
                         }
@@ -388,7 +392,7 @@ $(document).ready(function () {
                 }
 
                 sisend.forEach(function (rows) {
-                    console.log(rows);
+                    //       console.log(rows);
                 });
 
 
@@ -861,7 +865,7 @@ $(document).ready(function () {
 
             var ships = current_state.length;
 
-            console.log('max ships ' + ships);
+            //    console.log('max ships ' + ships);
 
             var GRID_x = current_state.length;
 
@@ -887,11 +891,11 @@ $(document).ready(function () {
                 }
 
 
-                console.log('-----------');
-                console.log(is_ship);
-                console.log('y: ' + y);
-                console.log('x: ' + x);
-                console.log('-----------');
+                //          console.log('-----------');
+                //           console.log(is_ship);
+                //           console.log('y: ' + y);
+                //          console.log('x: ' + x);
+                //          console.log('-----------');
 
                 //amount of ships chosen from ui will be taken from the randomized array of ships (var is_ship)
                 for (var z = 0; z < numberOfShipsStart; ++z) {
@@ -901,8 +905,8 @@ $(document).ready(function () {
                     var yLast = y[is_ship[z]];
 
 
-                    console.log('yx value at index [' + z + '] is: ' + yLast + xLast);
-                    console.log('-----------');
+                    //          console.log('yx value at index [' + z + '] is: ' + yLast + xLast);
+                    //         console.log('-----------');
 
                     var yx_sum = yLast + xLast;
                     playershipsLocation.push(yx_sum);
@@ -941,11 +945,11 @@ $(document).ready(function () {
                     if (!found)is_ship[is_ship.length] = randomnumber;
                 }
 
-                console.log('-----------');
-                console.log(is_ship);
-                console.log('y: ' + yOpp);
-                console.log('x: ' + xOpp);
-                console.log('-----------');
+                //              console.log('-----------');
+                //              console.log(is_ship);
+                //             console.log('y: ' + yOpp);
+                //               console.log('x: ' + xOpp);
+                //               console.log('-----------');
 
                 //amount of ships chosen from ui will be taken from the randomized array of ships (var is_ship)
                 for (var z = 0; z < numberOfShipsStart; ++z) {
@@ -955,8 +959,8 @@ $(document).ready(function () {
                     var yLast = yOpp[is_ship[z]];
 
 
-                    console.log('yx value at index [' + z + '] is: ' + yLast + xLast);
-                    console.log('-----------');
+                    //        console.log('yx value at index [' + z + '] is: ' + yLast + xLast);
+                    //         console.log('-----------');
 
                     var yx_sum = yLast + xLast;
 
@@ -1003,7 +1007,7 @@ $(document).ready(function () {
 
             ++count_players_moves;
 
-            console.log('count_players_move: ' + count_players_moves);
+            //      console.log('count_players_move: ' + count_players_moves);
             if (oppshipsLocation.indexOf(c_id) != -1) {   //if ship is hit
 
                 $(this).addClass('ship-opponent');
@@ -1022,6 +1026,7 @@ $(document).ready(function () {
 
             var player_points = $('.ship-opponent').length / 2;
             count_players_score = player_points;
+            console.log('player_score' + count_players_score);
             var player_missed = $('.player-missed').length;
             $('.players-moves').html(player_missed);
 
@@ -1050,7 +1055,7 @@ $(document).ready(function () {
             ++count_opps_moves;
 
 
-            console.log('count_opps_moves: ' + count_opps_moves);
+            //        console.log('count_opps_moves: ' + count_opps_moves);
 
             opponents_random_calc();
             function opponents_random_calc() {
@@ -1063,15 +1068,14 @@ $(document).ready(function () {
             }
 
 
-
-            console.log('opponents_chosen_steps' + opponents_chosen_steps);
+            //      console.log('opponents_chosen_steps' + opponents_chosen_steps);
 
             var move_match_id = $('.' + opponents_chosen_steps).attr('id');
             console.log(move_match_id);
             var move_match = move_match_id.replace("Lcell-", "");
 
 
-            console.log('cell id where opponent clicks: ' + move_match_id);
+//            console.log('cell id where opponent clicks: ' + move_match_id);
 
 
             if (playershipsLocation.indexOf(move_match) != -1) {   // if ship is hit
@@ -1079,6 +1083,7 @@ $(document).ready(function () {
                 $('#' + move_match_id).addClass('ship-player');
                 points = $('.ship-player').length / 2;
                 count_opps_score = points;
+                console.log('opps_score' + count_opps_score);
                 player_left = numberOfShipsStart - points;
                 $('#players-navy').html(player_left);
 
@@ -1092,6 +1097,7 @@ $(document).ready(function () {
                 $('#' + move_match_id).addClass('ship-player');
                 points = $('.ship-player').length / 2;
                 count_opps_score = points;
+                console.log('opps_score' + count_opps_score);
                 player_left = numberOfShipsStart - points;
                 $('#players-navy').html(player_left);
                 ++count_opps_points;
@@ -1127,17 +1133,19 @@ $(document).ready(function () {
     function game_ended() {
 
 
-        $('.stats-table').removeClass('hidden');
+        //    $('.stats-table').removeClass('hidden');
         $('#player-stats').empty();
         $('#opponent-stats').empty();
-        $('.choose-grid').removeClass('lift-up');
+        //    $('.choose-grid').removeClass('lift-up');
         $('.board-wrap').addClass('disabled');
 
-        console.log('stats');
+        // console.log('stats');
         //   console.log('players_moves_storage' + players_moves_storage)
 
 
         game_time.push(minutes + ":" + seconds);
+
+        game_time_sec.push(seconds);
 
         for (var loop = 0; loop < players_moves_storage.length; ++loop) {
 
@@ -1145,7 +1153,7 @@ $(document).ready(function () {
             var table_row_player = '<tr><td>' + grid_size_stats[loop] + '</td><td>' + ships_size_stats[loop] + '</td><td>' + players_moves_storage[loop] + '</td><td>' + opps_moves_storage[loop] + '</td><td>' + game_time[loop] + '</td></tr>';
 
             $(table_row_player).prependTo('#player-stats');
-            console.log('stats ' + players_moves_storage[loop])
+            //   console.log('stats ' + players_moves_storage[loop])
 
             if (players_moves_storage.length === 11) {
 
@@ -1160,48 +1168,27 @@ $(document).ready(function () {
 
         clearTimeout(tik_tak);
 
+
+        console.log('game_time_sec' + game_time_sec);
+        console.log('count_opps_score' + count_opps_score);
+        console.log('count_players_score' + count_players_score);
+        console.log('player_name' + player_name);
         getGamePlayData();
 
         function getGamePlayData() {
 
-            document.getElementById('player1_name').value = "player1_name";
-            document.getElementById('player1_score').value = "player1_score";
-            document.getElementById('player2_score').value = "player2_score";
-            document.getElementById('start_time').value = "start_time";
-            document.getElementById('game_time').value = "game_time";
-            document.getElementById("submitForm").submit();
+            document.getElementById('player1_name').value = player_name;
+            document.getElementById('player1_score').value = count_players_score;
+            document.getElementById('player2_score').value = count_opps_score;
+            document.getElementById('start_time').value = current_date;
+            document.getElementById('game_time').value = game_time_sec;
 
+            trigger();
+            function trigger() {
+                $("#submit-data").trigger("click");
+            }
 
-            
         }
-
-
-        var form = $('#form'); // contact form
-        var submit = $('#submit-data');  // submit button
-
-
-        // form submit event
-        form.on('submit', function(e) {
-            e.preventDefault(); // prevent default form submit
-
-            $.ajax({
-                url: '/~Mehis.Kont/cgi-bin/prax3/results.py', // form action url
-                type: 'POST', // form submit method get/post
-                dataType: 'html', // request type html/json/xml
-                data: form.serialize(), // serialize form data
-                beforeSend: function() {
-                    submit.html('Sending....'); // change submit button text
-                },
-                success: function(data) {
-                    form.trigger('reset'); // reset form
-                    submit.html('Send Email'); // reset submit button text
-                },
-                error: function(e) {
-                    console.log(e)
-                }
-            });
-        });
-
 
     }
 

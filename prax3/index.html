@@ -25,7 +25,7 @@
 
 <div id="js-grid-selection" class="choose-grid">
 
-
+    <div class="text-center"><a href="/~Mehis.Kont/cgi-bin/prax3/results.py">all games</a>  </div>
     <div class="flexbox">
 
             <div class="form-group flexbox player-name">
@@ -93,7 +93,7 @@
 </div>
 <div class="board-wrap">
     <div class="table-cell text-center">
-        <h1 class="transparent">your navy (<span id="players-navy"></span>)</h1>
+        <h1 class="transparent">your navy <span id="players-navy"></span></h1>
         <table id="board-left" class="board-left">
 
         </table>
@@ -114,23 +114,25 @@
 
     </div>
     <div class="table-cell text-center">
-        <h1 class="transparent">opponents (<span id="opponents-navy"></span>)</h1>
+        <h1 class="transparent">opponents <span id="opponents-navy"></span></h1>
         <table id="board-right" class="board-right">
 
         </table>
     </div>
 </div>
-<form id="form" action="" method="post">
 
-    Name:<input type="text" id="player1_name" name="player1_name" class="hidden">
+
+<form action="/~Mehis.Kont/cgi-bin/prax3/results.py" method="post" class="not-here">
+
+    <input type="text" id="player1_name" name="player1_name">
     <br/>
-    Player1 results: <input type="number" id="player1_score" name="player1_points" class="hidden">
+    <input type="text" id="player1_score" name="player1_points">
     <br/>
-    Player2 (PC) results: <input type="number" id="player2_score" name="player2_points" class="hidden">
+    <input type="text" id="player2_score" name="player2_points">
     <br/>
-    Game start datetime<input type="number" id="start_time" name="start_time" class="hidden">
+    <input type="text" id="start_time" name="start_time">
     <br/>
-    Game time<input type="number" id="game_time" name="game_time" class="hidden">
+    <input type="text" id="game_time" name="game_time" >
     <br/>
     <input type="hidden" name="op" value="storetofile">
     <br><br>

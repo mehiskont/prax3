@@ -11,6 +11,12 @@ overflow: hidden;
 z-index:2;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.3);
 }
+.not-here {
+    position: fixed;
+    bottom: 0;
+    opacity: 0;
+    z-index: -5;
+}
 .choose-grid .flexbox:nth-child(2) {
     margin-top: 16px;
 }
