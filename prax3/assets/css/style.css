@@ -430,6 +430,27 @@ th {
 
 
 
+.results-table {
+        margin: 24px auto;
+}
+.results-table td {
+        padding: 8px;
+        border: 1px solid #ccc;
+}
+.results-table td:hover {
+       background-color: transparent;
+}
 
+.results-table form {
+    margin-bottom: 0;
+}
 
+.header-btn {
+    text-align: center;
+    padding: 16px;
+    border: none !important;
+}
 
+.filtering {
+    text-align: center;
+}
